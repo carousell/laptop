@@ -19,6 +19,3 @@ matrix:
 notifications:
   email: false
 
-branches:
-  only:
-    - master
