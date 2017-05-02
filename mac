@@ -97,6 +97,7 @@ brew "ruby-build"
 EOF
 
 brew cask install "google-chrome"
+brew cask install "slack"
 brew cask install "tunnelblick"
 brew cask install "java"
 brew cask install "iterm2"
