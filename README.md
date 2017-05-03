@@ -25,17 +25,17 @@ versions are welcome.
 Install
 -------
 
-Download and review the script:
+Install Homebrew (Cask), Slack, Chrome and Encrypt the hard disk:
 
 ```sh
 curl --remote-name https://raw.githubusercontent.com/carousell/laptop/master/mac
-less mac
+sh mac -encrypt
 ```
 
-### General Install
+### Engineering Setup
 
 ```
-sh mac 2>&1 | tee ~/laptop.log
+sh mac -dev 2>&1 | tee ~/laptop.log
 ```
 
 ### For Android Development
@@ -45,7 +45,7 @@ to install Android Studio and other libraries required
 for Android development.
 
 ```
-sh mac -android 2>&1 | tee ~/laptop.log
+sh mac -dev -android 2>&1 | tee ~/laptop.log
 ```
 
 Debugging
@@ -60,11 +60,19 @@ Or, attach the whole log file as an attachment.
 What it sets up
 ---------------
 
-macOS tools:
+### General Install for Everyone:
 
 * [Homebrew] for managing operating system libraries.
 
 [Homebrew]: http://brew.sh/
+
+Apps:
+
+* Google Chrome
+* Slack
+
+
+### Engineering Setup
 
 Unix tools:
 
@@ -75,6 +83,7 @@ Unix tools:
 [Git]: https://git-scm.com/
 [OpenSSL]: https://www.openssl.org/
 [Tmux]: http://tmux.github.io/
+
 
 Programming languages and configuration:
 
@@ -93,15 +102,14 @@ Programming languages and configuration:
 [Java]: https://java.com/en/download/
 [Python]: https://www.python.org/downloads/
 
-Apps:
 
-* [Google Chrome]
+Apps:
 * [Tunnelblick] for VPN access
 * [iTerm2] for a better Terminal
 
-[Google Chrome]: https://www.google.com/chrome/
-[Tunnelblick]: https://tunnelblick.net/downloads.html
+[Tunnelblick]: https://tunnelblick.net/
 [iTerm2]: https://www.iterm2.com/
+
 
 Android specific:
 
