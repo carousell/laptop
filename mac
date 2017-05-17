@@ -1,8 +1,13 @@
 #!/bin/sh
 
-# Welcome to the thoughtbot laptop script!
-# Be prepared to turn your laptop (or desktop, no haters here)
-# into an awesome development machine.
+# Everything you need to get started at Carousell.
+# Running the script alone gets you Chrome and Slack installed.
+# You can supply additional commands to get additional setup done:
+#
+# -encrypt : enables FileVault 2
+# -dev : installs a set of programming languages and tools for engineers
+# -android : installs android studio
+#
 
 fancy_echo() {
   local fmt="$1"; shift
@@ -74,49 +79,42 @@ if brew list | grep -Fq brew-cask; then
   brew uninstall --force brew-cask
 fi
 
-fancy_echo "Updating Homebrew formulae ..."
-brew update
-brew bundle --file=- <<EOF
-tap "homebrew/services"
-
-# Unix
-brew "git"
-brew "openssl"
-brew "tmux"
-brew "vim"
-
-# Programming languages
-brew "libyaml" # should come after openssl
-brew "node"
-brew "python"
-brew "python3"
-brew "go"
-brew "rbenv"
-brew "ruby-build"
-
-EOF
-
 brew cask install "google-chrome"
 brew cask install "slack"
-brew cask install "tunnelblick"
-brew cask install "java"
-brew cask install "iterm2"
-
-pip install --upgrade pip
-pip install virtualenvwrapper
-
-# shellcheck source=/dev/null
-source "$HOMEBREW_PREFIX/bin/virtualenvwrapper.sh"
-
-append_to_bshrc "source $HOMEBREW_PREFIX/bin/virtualenvwrapper.sh"
 
 for i in "$@" ; do
-        if [[ $i == "-android" ]]  ; then
-                brew cask install "android-studio"
+        if [[ $i == "-dev" ]]  ; then
+                fancy_echo "Updating Homebrew formulae ..."
+                brew update
+                brew tap homebrew/services
+                # Unix
+                brew install git openssl
+
+                # Programming languages
+                brew install libyaml node python python3 go rbenv ruby-build
+
+                brew cask install "tunnelblick"
+                brew cask install "iterm2"
+
+                pip install --upgrade pip
+                pip install virtualenvwrapper
+
+                # shellcheck source=/dev/null
+                source "$HOMEBREW_PREFIX/bin/virtualenvwrapper.sh"
+
+                append_to_bshrc "source $HOMEBREW_PREFIX/bin/virtualenvwrapper.sh"
                 break
         fi
-done
+        if [[ $i == "-android" ]]  ; then
+                brew cask install java android-studio
+                break
+        fi
+        if [[ $i == "-encrypt" ]]  ; then
+                sudo fdesetup enable
+                break
+        fi
 
+done
 
 if [ -f "$HOME/.laptop.local" ]; then
   fancy_echo "Running your customizations from ~/.laptop.local ..."
