@@ -109,6 +109,14 @@ for i in "$@" ; do
                 brew cask install java android-studio
                 break
         fi
+        if [[ $i == "-ios" ]]; then
+                brew install carthage
+                gem install cocoapods
+                gem install fastlane
+                gem install xcode-install
+                xcversion install 8.3.2
+                break
+        fi
         if [[ $i == "-encrypt" ]]  ; then
                 sudo fdesetup enable
                 break
