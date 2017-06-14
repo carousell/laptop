@@ -48,6 +48,12 @@ for Android development.
 sh mac -dev -android 2>&1 | tee ~/laptop.log
 ```
 
+### For iOS Development
+
+```sh
+sh mac -dev -ios 2>&1 | tee ~/laptop.log
+```
+
 Debugging
 ---------
 
