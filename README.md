@@ -15,9 +15,9 @@ Requirements
 
 We support:
 
-* macOS Mavericks (10.9)
 * macOS Yosemite (10.10)
 * macOS El Capitan (10.11)
+* macOS Sierra (10.12)
 
 Older versions may work but aren't regularly tested. Bug reports for older
 versions are welcome.
@@ -77,7 +77,6 @@ Apps:
 * Google Chrome
 * Slack
 
-
 ### Engineering Setup
 
 Unix tools:
@@ -89,7 +88,6 @@ Unix tools:
 [Git]: https://git-scm.com/
 [OpenSSL]: https://www.openssl.org/
 [Tmux]: http://tmux.github.io/
-
 
 Programming languages and configuration:
 
@@ -108,7 +106,6 @@ Programming languages and configuration:
 [Java]: https://java.com/en/download/
 [Python]: https://www.python.org/downloads/
 
-
 Apps:
 * [Tunnelblick] for VPN access
 * [iTerm2] for a better Terminal
@@ -122,6 +119,17 @@ Android specific:
 * [Android Studio]
 
 [Android Studio]: https://developer.android.com/studio/index.html
+
+iOS Specific:
+
+* [Carthage]
+* [Cocoapods]
+* [Fastlane]
+* XCode
+
+[Carthage]: https://github.com/Carthage/Carthage
+[Cocoapods]: https://cocoapods.org/
+[Fastlane]: https://fastlane.tools/
 
 It should take less than 15 minutes to install (depends on your machine).
 
