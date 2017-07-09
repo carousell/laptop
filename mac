@@ -79,8 +79,17 @@ if brew list | grep -Fq brew-cask; then
   brew uninstall --force brew-cask
 fi
 
-brew cask install "google-chrome"
-brew cask install "slack"
+if brew cask list | grep -q "google-chrome"; then
+  fancy_echo "Chrome already installed, skipping"
+else
+  brew cask install "google-chrome"
+fi
+
+if brew cask list | grep -q "slack"; then
+  fancy_echo "Slack already installed, skipping"
+else
+  brew cask install "slack"
+fi
 
 for i in "$@" ; do
         if [[ $i == "-dev" ]]  ; then
