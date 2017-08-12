@@ -123,13 +123,13 @@ Android specific:
 iOS Specific:
 
 * [Carthage]
-* [Cocoapods]
-* [Fastlane]
-* XCode
+* [CocoaPods]
+* [fastlane]
+* Xcode
 
 [Carthage]: https://github.com/Carthage/Carthage
-[Cocoapods]: https://cocoapods.org/
-[Fastlane]: https://fastlane.tools/
+[CocoaPods]: https://cocoapods.org/
+[fastlane]: https://fastlane.tools/
 
 It should take less than 15 minutes to install (depends on your machine).
 
