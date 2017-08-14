@@ -32,7 +32,9 @@ curl --remote-name https://raw.githubusercontent.com/carousell/laptop/master/mac
 sh mac -encrypt
 ```
 
-### Engineering Setup
+## Common Engineering Setup
+
+Run this first, regardless of the platform you work on.
 
 ```
 sh mac -dev 2>&1 | tee ~/laptop.log
@@ -40,18 +42,20 @@ sh mac -dev 2>&1 | tee ~/laptop.log
 
 ### For Android Development
 
-You can pass the `-android` parameter to the `mac` script
-to install Android Studio and other libraries required
-for Android development.
+Once you have done the Common Engineering setup above, run the following to
+install Android Studio and other dependencies.
 
 ```
-sh mac -dev -android 2>&1 | tee ~/laptop.log
+sh mac -android 2>&1 | tee ~/laptop.log
 ```
 
 ### For iOS Development
 
+Once you have done the Common Engineering setup above, run the following to
+install Android Studio and other dependencies.
+
 ```sh
-sh mac -dev -ios 2>&1 | tee ~/laptop.log
+sh mac -ios 2>&1 | tee ~/laptop.log
 ```
 
 Debugging

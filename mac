@@ -106,13 +106,8 @@ for i in "$@" ; do
                 brew cask install "iterm2"
                 brew cask install "docker"
 
-                pip install --upgrade pip
-                pip install virtualenvwrapper
-
                 # shellcheck source=/dev/null
                 source "$HOMEBREW_PREFIX/bin/virtualenvwrapper.sh"
-
-                append_to_bshrc "source $HOMEBREW_PREFIX/bin/virtualenvwrapper.sh"
                 break
         fi
         if [[ $i == "-android" ]]  ; then
