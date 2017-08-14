@@ -128,6 +128,16 @@ for i in "$@" ; do
                 break
         fi
         if [[ $i == "-encrypt" ]]  ; then
+                fancy_echo "***********************************"
+                fancy_echo "***********************************"
+                fancy_echo "*                                 *"
+                fancy_echo "* We will now encrypt your laptop *"
+                fancy_echo "*                                 *"
+                fancy_echo "* Please enter your Macbook's     *"
+                fancy_echo "* username and password.          *"
+                fancy_echo "*                                 *"
+                fancy_echo "***********************************"
+                fancy_echo "***********************************"
                 sudo fdesetup enable
                 break
         fi
