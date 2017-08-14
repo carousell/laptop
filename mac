@@ -133,7 +133,7 @@ for i in "$@" ; do
                 fancy_echo "*                                 *"
                 fancy_echo "***********************************"
                 fancy_echo "***********************************"
-                sudo fdesetup enable
+                sudo fdesetup enable -user $(whoami)
                 break
         fi
 
