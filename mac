@@ -101,6 +101,9 @@ for i in "$@" ; do
 
                 # Programming languages
                 brew install libyaml node python python3 go rbenv ruby-build
+                sudo easy_install --upgrade pip
+                sudo pip install virtualenv
+                sudo pip install virtualenvwrapper
 
                 brew cask install "tunnelblick"
                 brew cask install "iterm2"
@@ -133,7 +136,7 @@ for i in "$@" ; do
                 fancy_echo "*                                 *"
                 fancy_echo "***********************************"
                 fancy_echo "***********************************"
-                sudo fdesetup enable -user $(whoami)
+                sudo fdesetup enable -user "$(whoami)"
                 break
         fi
 
