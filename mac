@@ -101,6 +101,9 @@ for i in "$@" ; do
 
                 # Programming languages
                 brew install libyaml node python python3 go rbenv ruby-build
+                sudo easy_install --upgrade pip
+                sudo pip install virtualenv
+                sudo pip install virtualenvwrapper
 
                 brew cask install "tunnelblick"
                 brew cask install "iterm2"
