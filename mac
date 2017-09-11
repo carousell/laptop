@@ -79,14 +79,14 @@ if brew list | grep -Fq brew-cask; then
   brew uninstall --force brew-cask
 fi
 
-if brew cask list | grep -q "google-chrome"; then
+if brew cask list | grep -q "google-chrome" || [ -d "/Applications/Google Chrome.app" ] ; then
   fancy_echo "Chrome already installed, skipping"
 else
   brew cask install "google-chrome"
 fi
 
-if brew cask list | grep -q "slack"; then
-  fancy_echo "Slack already installed, skipping"
+if brew cask list | grep -q "slack" || [ -d "/Applications/Slack.app" ] ; then
+    fancy_echo "Slack already installed, skipping"
 else
   brew cask install "slack"
 fi
