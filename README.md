@@ -25,13 +25,16 @@ versions are welcome.
 Install
 -------
 
-## Common Engineering Setup
+## Step 1: Common Engineering Setup
 
-Run this first, regardless of the platform you work on.
+*Run this first*, regardless of the platform you work on.
 
 ```
 sh mac -dev 2>&1 | tee ~/laptop.log
 ```
+
+
+## Step 2: Platform Specific Setup
 
 ### For Android Development
 

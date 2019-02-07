@@ -120,8 +120,13 @@ for i in "$@" ; do
                 sudo pip install virtualenv
                 sudo pip install virtualenvwrapper
 
-                brew cask install "docker"
                 brew install golang
+
+                if brew cask list | grep -q "docker" || [ -d "/Applications/Docker.app" ] ; then
+                    fancy_echo "Docker already installed, skipping"
+                else
+                  brew cask install "docker"
+                fi
 
                 # shellcheck source=/dev/null
                 source "$HOMEBREW_PREFIX/bin/virtualenvwrapper.sh"
@@ -148,6 +153,19 @@ for i in "$@" ; do
                 brew install carthage
                 brew install node
                 brew install yarn
+                break
+        fi
+        if [[ $i == "-web" ]]; then
+                brew install node
+
+                if brew cask list | grep -q "docker" || [ -d "/Applications/Docker.app" ] ; then
+                    fancy_echo "Docker already installed, skipping"
+                else
+                  brew cask install "docker"
+                fi
+
+                brew install yarn
+
                 break
         fi
         if [[ $i == "-encrypt" ]]  ; then
