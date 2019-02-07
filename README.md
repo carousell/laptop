@@ -15,22 +15,15 @@ Requirements
 
 We support:
 
-* macOS Yosemite (10.10)
-* macOS El Capitan (10.11)
 * macOS Sierra (10.12)
+* macOS High Sierra (10.13)
+* macOS Mojave (10.14)
 
 Older versions may work but aren't regularly tested. Bug reports for older
 versions are welcome.
 
 Install
 -------
-
-Install Homebrew (Cask), Slack, Chrome and Encrypt the hard disk:
-
-```sh
-curl --remote-name https://raw.githubusercontent.com/carousell/laptop/master/mac
-sh mac -encrypt
-```
 
 ## Common Engineering Setup
 
@@ -58,6 +51,14 @@ install Android Studio and other dependencies.
 sh mac -ios 2>&1 | tee ~/laptop.log
 ```
 
+### For Backend Development
+Once you have done the Common Engineering setup above, run the following to
+install Docker, Golang and other dependencies.
+
+```sh
+sh mac -backend 2>&1 | tee ~/laptop.log
+```
+
 Debugging
 ---------
 
@@ -80,6 +81,7 @@ Apps:
 
 * Google Chrome
 * Slack
+* [Tunnelblick] (for VPN)
 
 ### Engineering Setup
 
@@ -109,11 +111,6 @@ Programming languages and configuration:
 [Ruby]: https://www.ruby-lang.org/en/
 [Java]: https://java.com/en/download/
 [Python]: https://www.python.org/downloads/
-
-Apps:
-* [Tunnelblick] for VPN access
-* [iTerm2] for a better Terminal
-
 [Tunnelblick]: https://tunnelblick.net/
 [iTerm2]: https://www.iterm2.com/
 
@@ -135,7 +132,8 @@ iOS Specific:
 [CocoaPods]: https://cocoapods.org/
 [fastlane]: https://fastlane.tools/
 
-It should take less than 15 minutes to install (depends on your machine).
+It should take less than 30 minutes to install (depends on your machine), and
+will be longer for mobile development setup.
 
 Customize in `~/.laptop.local`
 ------------------------------
@@ -209,7 +207,7 @@ License
 
 Copyright for portions of project laptop are held by thoughtbot, inc 2011-2017
 as part of thoughtbot/laptop. All other copyright for project carousell/laptop
-are held by Carousell, 2017. 
+are held by Carousell, 2019. 
 
 It is free software, and may be redistributed under the terms
 specified in the [LICENSE] file.

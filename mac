@@ -91,6 +91,19 @@ else
   brew cask install "slack"
 fi
 
+if brew cask list | grep -q "tunnelblick" || [ -d "/Applications/Tunnelblick.app" ] ; then
+    fancy_echo "Tunnelblick (VPN) already installed, skipping"
+else
+  brew cask install "tunnelblick"
+fi
+
+if brew cask list | grep -q "iterm2" || [ -d "/Applications/iTerm.app" ] ; then
+    fancy_echo "iTerm2 already installed, skipping"
+else
+  brew cask install "iterm2"
+fi
+
+
 for i in "$@" ; do
         if [[ $i == "-dev" ]]  ; then
                 fancy_echo "Updating Homebrew formulae ..."
@@ -98,16 +111,17 @@ for i in "$@" ; do
                 brew tap homebrew/services
                 # Unix
                 brew install git openssl
-
+                break
+        fi
+        if [[ $i == "-backend" ]]  ; then
                 # Programming languages
                 brew install libyaml node python python3 go rbenv ruby-build
                 sudo easy_install --upgrade pip
                 sudo pip install virtualenv
                 sudo pip install virtualenvwrapper
 
-                brew cask install "tunnelblick"
-                brew cask install "iterm2"
                 brew cask install "docker"
+                brew install golang
 
                 # shellcheck source=/dev/null
                 source "$HOMEBREW_PREFIX/bin/virtualenvwrapper.sh"
@@ -118,11 +132,22 @@ for i in "$@" ; do
                 break
         fi
         if [[ $i == "-ios" ]]; then
-                brew install carthage
                 gem install cocoapods
                 gem install fastlane
                 gem install xcode-install
-                xcversion install 8.3.2
+                xcversion install 9.3.1
+                brew install rbenv
+                echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
+                echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
+                source ~/.bash_profile
+                brew upgrade ruby-build
+                rbenv install 2.3.5
+                gem install bundler
+                rbenv rehash
+                bundle install
+                brew install carthage
+                brew install node
+                brew install yarn
                 break
         fi
         if [[ $i == "-encrypt" ]]  ; then
