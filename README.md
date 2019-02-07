@@ -62,6 +62,14 @@ install Docker, Golang and other dependencies.
 sh mac -backend 2>&1 | tee ~/laptop.log
 ```
 
+### For Web Development
+Once you have done the Common Engineering setup above, run the following to
+install Docker, Node and other dependencies.
+
+```sh
+sh mac -web 2>&1 | tee ~/laptop.log
+```
+
 Debugging
 ---------
 
