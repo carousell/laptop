@@ -120,8 +120,6 @@ for i in "$@" ; do
                 sudo pip install virtualenv
                 sudo pip install virtualenvwrapper
 
-                brew install golang
-
                 if brew cask list | grep -q "docker" || [ -d "/Applications/Docker.app" ] ; then
                     fancy_echo "Docker already installed, skipping"
                 else
