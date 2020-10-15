@@ -79,25 +79,25 @@ if brew list | grep -Fq brew-cask; then
   brew uninstall --force brew-cask
 fi
 
-if brew cask list | grep -q "google-chrome" || [ -d "/Applications/Google Chrome.app" ] ; then
+if brew list --cask | grep -q "google-chrome" || [ -d "/Applications/Google Chrome.app" ] ; then
   fancy_echo "Chrome already installed, skipping"
 else
   brew cask install "google-chrome"
 fi
 
-if brew cask list | grep -q "slack" || [ -d "/Applications/Slack.app" ] ; then
+if brew list --cask | grep -q "slack" || [ -d "/Applications/Slack.app" ] ; then
     fancy_echo "Slack already installed, skipping"
 else
   brew cask install "slack"
 fi
 
-if brew cask list | grep -q "tunnelblick" || [ -d "/Applications/Tunnelblick.app" ] ; then
+if brew list --cask | grep -q "tunnelblick" || [ -d "/Applications/Tunnelblick.app" ] ; then
     fancy_echo "Tunnelblick (VPN) already installed, skipping"
 else
   brew cask install "tunnelblick"
 fi
 
-if brew cask list | grep -q "iterm2" || [ -d "/Applications/iTerm.app" ] ; then
+if brew list --cask | grep -q "iterm2" || [ -d "/Applications/iTerm.app" ] ; then
     fancy_echo "iTerm2 already installed, skipping"
 else
   brew cask install "iterm2"
@@ -120,7 +120,7 @@ for i in "$@" ; do
                 sudo pip install virtualenv
                 sudo pip install virtualenvwrapper
 
-                if brew cask list | grep -q "docker" || [ -d "/Applications/Docker.app" ] ; then
+                if brew list --cask | grep -q "docker" || [ -d "/Applications/Docker.app" ] ; then
                     fancy_echo "Docker already installed, skipping"
                 else
                   brew cask install "docker"
@@ -156,7 +156,7 @@ for i in "$@" ; do
         if [[ $i == "-web" ]]; then
                 brew install node
 
-                if brew cask list | grep -q "docker" || [ -d "/Applications/Docker.app" ] ; then
+                if brew list --cask | grep -q "docker" || [ -d "/Applications/Docker.app" ] ; then
                     fancy_echo "Docker already installed, skipping"
                 else
                   brew cask install "docker"
