@@ -115,7 +115,7 @@ for i in "$@" ; do
         fi
         if [[ $i == "-backend" ]]  ; then
                 # Programming languages
-                brew install libyaml node python@2 python go rbenv ruby-build
+                brew install libyaml node python go rbenv ruby-build
                 sudo easy_install --upgrade pip
                 sudo pip install virtualenv
                 sudo pip install virtualenvwrapper
