@@ -63,8 +63,7 @@ fi
 
 if ! command -v brew >/dev/null; then
   fancy_echo "Installing Homebrew ..."
-    curl -fsS \
-      'https://raw.githubusercontent.com/Homebrew/install/master/install' | ruby
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
     append_to_bshrc '# recommended by brew doctor'
 
@@ -82,25 +81,25 @@ fi
 if brew list --cask | grep -q "google-chrome" || [ -d "/Applications/Google Chrome.app" ] ; then
   fancy_echo "Chrome already installed, skipping"
 else
-  brew cask install "google-chrome"
+  brew install --cask "google-chrome"
 fi
 
 if brew list --cask | grep -q "slack" || [ -d "/Applications/Slack.app" ] ; then
     fancy_echo "Slack already installed, skipping"
 else
-  brew cask install "slack"
+  brew install --cask "slack"
 fi
 
 if brew list --cask | grep -q "tunnelblick" || [ -d "/Applications/Tunnelblick.app" ] ; then
     fancy_echo "Tunnelblick (VPN) already installed, skipping"
 else
-  brew cask install "tunnelblick"
+  brew install --cask "tunnelblick"
 fi
 
 if brew list --cask | grep -q "iterm2" || [ -d "/Applications/iTerm.app" ] ; then
     fancy_echo "iTerm2 already installed, skipping"
 else
-  brew cask install "iterm2"
+  brew install --cask "iterm2"
 fi
 
 
@@ -123,7 +122,7 @@ for i in "$@" ; do
                 if brew list --cask | grep -q "docker" || [ -d "/Applications/Docker.app" ] ; then
                     fancy_echo "Docker already installed, skipping"
                 else
-                  brew cask install "docker"
+                  brew install --cask "docker"
                 fi
 
                 # shellcheck source=/dev/null
@@ -131,7 +130,7 @@ for i in "$@" ; do
                 break
         fi
         if [[ $i == "-android" ]]  ; then
-                brew cask install java android-studio
+                brew install --cask java android-studio
                 break
         fi
         if [[ $i == "-ios" ]]; then
@@ -159,7 +158,7 @@ for i in "$@" ; do
                 if brew list --cask | grep -q "docker" || [ -d "/Applications/Docker.app" ] ; then
                     fancy_echo "Docker already installed, skipping"
                 else
-                  brew cask install "docker"
+                  brew install --cask "docker"
                 fi
 
                 brew install yarn
