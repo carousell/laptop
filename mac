@@ -162,6 +162,8 @@ for i in "$@" ; do
                 fi
 
                 brew install yarn
+                brew install nginx
+                brew install mutagen-io/mutagen/mutagen
 
                 break
         fi
